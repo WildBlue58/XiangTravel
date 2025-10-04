@@ -14,27 +14,15 @@ function fixVantBemConflict() {
       Object.keys(bundle).forEach((fileName) => {
         const chunk = bundle[fileName];
         if (chunk.type === "chunk" && chunk.code) {
-          let counter = 0;
-          // 使用正则表达式查找并替换重复的bem声明
-          // 将 const [name, bem] 替换为 const [name_N, bem_N]
+          // 策略：将所有 const [name, bem] 声明改为 let [name, bem]
+          // 这样即使重复声明也不会报错（let允许在不同块作用域中重复）
           chunk.code = chunk.code.replace(
             /const\s+\[(\w+),\s*bem\]\s*=\s*createNamespace/g,
-            (match: string, nameVar: string) => {
-              counter++;
-              if (counter === 1) {
-                return match; // 保留第一个不变
-              }
-              return `const [${nameVar}_${counter}, bem_${counter}] = createNamespace`;
+            (match: string) => {
+              // 将 const 改为 var，var 允许重复声明
+              return match.replace(/^const\s+/, "var ");
             }
           );
-
-          // 同时替换对应的bem使用
-          let bemCounter = 1;
-          chunk.code = chunk.code.replace(/\bbem\(/g, () => {
-            bemCounter++;
-            if (bemCounter === 2) return "bem(";
-            return `bem_${bemCounter - 1}(`;
-          });
         }
       });
     },
