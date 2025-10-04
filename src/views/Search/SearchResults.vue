@@ -9,7 +9,7 @@
             size="1.5rem"
             color="#666"
             class="cursor-pointer"
-            @click="$router.back()"
+            @click="router.back()"
           />
           <van-search
             v-model="searchQuery"

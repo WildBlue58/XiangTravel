@@ -91,7 +91,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/userStore";
 import { userApi } from "@/api/supabase";
-import { showToast, showSuccessToast, showFailToast } from "vant";
+import { showSuccessToast, showFailToast } from "vant";
 
 const router = useRouter();
 const userStore = useUserStore();

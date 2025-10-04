@@ -8,7 +8,7 @@
           size="1.5rem"
           color="#333"
           class="cursor-pointer"
-          @click="$router.back()"
+          @click="router.back()"
         />
         <div class="flex items-center space-x-3">
           <van-icon
@@ -378,7 +378,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useFavoriteStore } from "@/store/favoriteStore";
 import { useUserStore } from "@/store/userStore";
 import { productApi } from "@/api/supabase";
@@ -386,6 +386,7 @@ import { showSuccessToast, showFailToast } from "vant";
 import type { Product } from "@/types/api";
 
 const route = useRoute();
+const router = useRouter();
 const favoriteStore = useFavoriteStore();
 const userStore = useUserStore();
 
