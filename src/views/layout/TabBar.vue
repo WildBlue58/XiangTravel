@@ -1,19 +1,19 @@
 <template>
   <van-tabbar v-model="active" class="bg-white border-t border-gray-200">
     <van-tabbar-item icon="home-o" to="/home" name="home">
-      <span class="text-xs mt-1">Home</span>
+      <span class="text-xs mt-1">首页</span>
     </van-tabbar-item>
     <van-tabbar-item icon="discount" to="/discount" name="discount">
-      <span class="text-xs mt-1">Discount</span>
+      <span class="text-xs mt-1">优惠</span>
     </van-tabbar-item>
     <van-tabbar-item icon="star-o" to="/collection" name="collection">
-      <span class="text-xs mt-1">Favorites</span>
+      <span class="text-xs mt-1">收藏</span>
     </van-tabbar-item>
     <van-tabbar-item icon="calendar-o" to="/trip" name="trip">
-      <span class="text-xs mt-1">Itinerary</span>
+      <span class="text-xs mt-1">行程</span>
     </van-tabbar-item>
     <van-tabbar-item icon="user-o" to="/account" name="account">
-      <span class="text-xs mt-1">My Profile</span>
+      <span class="text-xs mt-1">我的</span>
     </van-tabbar-item>
   </van-tabbar>
 </template>

@@ -9,7 +9,7 @@
     <div class="px-4 pt-6 pb-4">
       <van-search
         v-model="searchField"
-        placeholder="Q Where"
+        placeholder="想去哪里？"
         show-action
         shape="round"
         background="transparent"
@@ -28,15 +28,15 @@
       <!-- 标签页 -->
       <div class="bg-white rounded-2xl p-6 mb-6 shadow-sm">
         <van-tabs v-model:active="activeTab" class="mb-0">
-          <van-tab title="Tours & tickets" name="tours"></van-tab>
-          <van-tab title="Hotels" name="hotels"></van-tab>
-          <van-tab title="Car rentals" name="cars"></van-tab>
+          <van-tab title="游览门票" name="tours"></van-tab>
+          <van-tab title="酒店住宿" name="hotels"></van-tab>
+          <van-tab title="租车服务" name="cars"></van-tab>
         </van-tabs>
       </div>
 
       <!-- Deals 部分 -->
       <div class="bg-white rounded-2xl p-6 mb-6 shadow-sm">
-        <h2 class="text-xl font-bold mb-6 text-gray-900">Deals</h2>
+        <h2 class="text-xl font-bold mb-6 text-gray-900">热门优惠</h2>
         <div class="grid grid-cols-2 gap-4">
           <div
             v-for="deal in deals"
@@ -92,19 +92,19 @@ import { ref } from "vue";
 const searchField = ref<string>("");
 const activeTab = ref("tours");
 
-// Deals 数据
+// 热门优惠数据
 const deals = ref([
   {
     id: 1,
-    title: "Explore the Alps",
-    description: "Hiking and sightseeing",
+    title: "探索阿尔卑斯山",
+    description: "徒步登山与观光体验",
     imageUrl:
       "https://images.pexels.com/photos/773594/pexels-photo-773594.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
   },
   {
     id: 2,
-    title: "Discover Tokyo",
-    description: "Cultural tours and",
+    title: "发现东京之美",
+    description: "文化之旅与城市探索",
     imageUrl:
       "https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
   },

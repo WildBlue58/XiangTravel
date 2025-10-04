@@ -7,7 +7,7 @@
 
     <!-- 标题栏 -->
     <div class="px-4 pt-6 pb-4">
-      <h1 class="text-2xl font-bold text-white mb-6">My Profile</h1>
+      <h1 class="text-2xl font-bold text-white mb-6">个人中心</h1>
     </div>
 
     <!-- 主要内容 -->
@@ -54,7 +54,7 @@
 
       <!-- Account 部分 -->
       <div class="bg-white rounded-2xl p-6 shadow-sm">
-        <h3 class="text-xl font-bold mb-6 text-gray-900">Account</h3>
+        <h3 class="text-xl font-bold mb-6 text-gray-900">账户设置</h3>
         <div class="space-y-2">
           <div
             v-for="option in accountOptions"
@@ -117,11 +117,11 @@ const userProfile = computed(() => {
 
 // 账户选项
 const accountOptions = ref([
-  { id: 1, title: "Personal Information", icon: "user-o" },
-  { id: 2, title: "Order History", icon: "orders-o" },
-  { id: 3, title: "Payment Methods", icon: "credit-pay" },
-  { id: 4, title: "Notifications", icon: "volume-o" },
-  { id: 5, title: "Settings", icon: "setting-o" },
+  { id: 1, title: "个人信息", icon: "user-o" },
+  { id: 2, title: "订单历史", icon: "orders-o" },
+  { id: 3, title: "支付方式", icon: "credit-pay" },
+  { id: 4, title: "消息通知", icon: "volume-o" },
+  { id: 5, title: "系统设置", icon: "setting-o" },
 ]);
 
 // 头像上传功能

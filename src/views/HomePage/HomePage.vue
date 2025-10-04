@@ -9,7 +9,7 @@
     <div class="px-4 pt-6 pb-4">
       <van-search
         v-model="searchField"
-        placeholder="Q Where"
+        placeholder="想去哪里？"
         show-action
         shape="round"
         background="transparent"
@@ -27,9 +27,9 @@
 
     <!-- 主要内容 -->
     <main class="px-4 pb-20">
-      <!-- Explore 部分 -->
+      <!-- 探索发现 部分 -->
       <div class="bg-white rounded-2xl p-6 mb-6 shadow-sm">
-        <h2 class="text-xl font-bold mb-6 text-gray-900">Explore</h2>
+        <h2 class="text-xl font-bold mb-6 text-gray-900">探索发现</h2>
         <div class="grid grid-cols-3 gap-6">
           <div
             v-for="item in exploreItems"
@@ -49,9 +49,9 @@
         </div>
       </div>
 
-      <!-- Recently Viewed 部分 -->
+      <!-- 最近浏览 部分 -->
       <div class="bg-white rounded-2xl p-6 shadow-sm">
-        <h2 class="text-xl font-bold mb-6 text-gray-900">Recently Viewed</h2>
+        <h2 class="text-xl font-bold mb-6 text-gray-900">最近浏览</h2>
         <div class="grid grid-cols-2 gap-4">
           <div
             v-for="item in recentlyViewedItems"
@@ -105,14 +105,14 @@ const favoriteStore = useFavoriteStore();
 const searchField = ref<string>("");
 const isSearching = ref(false);
 
-// Explore 功能数据
+// 探索发现功能数据
 const exploreItems = ref([
-  { title: "Tours & Experiences", icon: "location-o", category: "tours" },
-  { title: "Attraction Tickets", icon: "star-o", category: "tickets" },
-  { title: "Hotels", icon: "home-o", category: "hotels" },
-  { title: "Transportation", icon: "logistics", category: "transportation" },
-  { title: "Car Rental", icon: "shop-o", category: "cars" },
-  { title: "More", icon: "ellipsis", category: "all" },
+  { title: "游览体验", icon: "location-o", category: "tours" },
+  { title: "景点门票", icon: "star-o", category: "tickets" },
+  { title: "酒店住宿", icon: "home-o", category: "hotels" },
+  { title: "交通出行", icon: "logistics", category: "transportation" },
+  { title: "租车服务", icon: "shop-o", category: "cars" },
+  { title: "更多", icon: "ellipsis", category: "all" },
 ]);
 
 // 计算属性 - 最近浏览数据

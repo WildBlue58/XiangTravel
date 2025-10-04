@@ -7,7 +7,7 @@
 
     <!-- 标题栏 -->
     <div class="px-4 pt-6 pb-4">
-      <h1 class="text-2xl font-bold text-white mb-6">Saved</h1>
+      <h1 class="text-2xl font-bold text-white mb-6">我的收藏</h1>
     </div>
 
     <!-- 主要内容 -->
@@ -15,9 +15,9 @@
       <!-- 标签页 -->
       <div class="bg-white rounded-2xl p-6 mb-6 shadow-sm">
         <van-tabs v-model:active="activeTab" class="mb-0">
-          <van-tab title="Tours" name="tours"></van-tab>
-          <van-tab title="Tickets" name="tickets"></van-tab>
-          <van-tab title="Hotels" name="hotels"></van-tab>
+          <van-tab title="游览体验" name="tours"></van-tab>
+          <van-tab title="景点门票" name="tickets"></van-tab>
+          <van-tab title="酒店住宿" name="hotels"></van-tab>
         </van-tabs>
       </div>
 

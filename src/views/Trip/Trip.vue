@@ -7,14 +7,14 @@
 
     <!-- 标题栏 -->
     <div class="px-4 pt-6 pb-4">
-      <h1 class="text-2xl font-bold text-white mb-6">Itinerary</h1>
+      <h1 class="text-2xl font-bold text-white mb-6">我的行程</h1>
     </div>
 
     <!-- 主要内容 -->
     <main class="px-4 pb-20">
       <!-- Upcoming 部分 -->
       <div class="bg-white rounded-2xl p-6 mb-6 shadow-sm">
-        <h2 class="text-xl font-bold mb-6 text-gray-900">Upcoming</h2>
+        <h2 class="text-xl font-bold mb-6 text-gray-900">即将出发</h2>
         <div class="space-y-4">
           <div
             v-for="trip in upcomingTrips"
@@ -57,7 +57,7 @@
 
       <!-- Past 部分 -->
       <div class="bg-white rounded-2xl p-6 shadow-sm">
-        <h2 class="text-xl font-bold mb-6 text-gray-900">Past</h2>
+        <h2 class="text-xl font-bold mb-6 text-gray-900">历史行程</h2>
         <div class="space-y-4">
           <div
             v-for="trip in pastTrips"
