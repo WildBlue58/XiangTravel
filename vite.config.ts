@@ -5,40 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 import Components from "unplugin-vue-components/vite";
 import { VantResolver } from "@vant/auto-import-resolver";
 
-// Rollup插件：修复Vant bem变量冲突
-function fixVantBemConflict() {
-  return {
-    name: "fix-vant-bem-conflict",
-    generateBundle(_options: any, bundle: any) {
-      let totalReplacements = 0;
-      // 遍历所有生成的chunk
-      Object.keys(bundle).forEach((fileName) => {
-        const chunk = bundle[fileName];
-        if (chunk.type === "chunk" && chunk.code) {
-          let replacements = 0;
-          // 策略：将所有 const [name, bem] 声明改为 var [name, bem]
-          // var 允许重复声明，不会报错
-          chunk.code = chunk.code.replace(
-            /const\s+\[(\w+),\s*bem\]\s*=\s*createNamespace/g,
-            (match: string) => {
-              replacements++;
-              totalReplacements++;
-              // 将 const 改为 var
-              return match.replace(/^const\s+/, "var ");
-            }
-          );
-          if (replacements > 0) {
-            console.log(
-              `✓ Fixed ${replacements} bem declarations in ${fileName}`
-            );
-          }
-        }
-      });
-      console.log(`✓ Total bem declarations fixed: ${totalReplacements}`);
-    },
-  };
-}
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -67,9 +33,17 @@ export default defineConfig({
     minify: false,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: (id) => {
+          // 将所有 vant 相关的代码打包到同一个 chunk 中
+          if (id.includes("node_modules/vant")) {
+            return "vant";
+          }
+          // 将所有 node_modules 中的其他库打包到 vendor chunk
+          if (id.includes("node_modules")) {
+            return "vendor";
+          }
+        },
       },
-      plugins: [fixVantBemConflict() as any],
     },
   },
 });
