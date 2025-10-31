@@ -35,16 +35,16 @@ export default defineConfig({
       output: {
         // 每个Vant组件单独打包，避免bem变量冲突
         manualChunks(id) {
-          if (id.includes('node_modules')) {
+          if (id.includes("node_modules")) {
             // 为每个Vant组件创建独立的chunk
-            if (id.includes('vant/es/')) {
+            if (id.includes("vant/es/")) {
               const match = id.match(/vant\/es\/([^/]+)/);
               if (match) {
                 return `vant-${match[1]}`;
               }
             }
             // 其他node_modules的包
-            return 'vendor';
+            return "vendor";
           }
         },
       },
